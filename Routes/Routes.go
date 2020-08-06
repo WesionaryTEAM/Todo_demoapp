@@ -12,7 +12,10 @@ func SetupRouter() *gin.Engine {
 	GroupAPI := r.Group("/GroupAPI")
 	{
 		GroupAPI.GET("todo", controllers.GetTodos)
-
+		GroupAPI.POST("todo", controllers.CreateATodo)
+		GroupAPI.GET("todo/:id", controllers.GetATodo)
+		GroupAPI.PUT("todo/:id", controllers.UpdateATodo)
+		GroupAPI.DELETE("todo/:id", controllers.DeleteATodo)
 	}
 	return r
 }
