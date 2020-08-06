@@ -1,8 +1,12 @@
 package models
 
+import (
+	"github.com/jinzhu/gorm"
+)
+
 //Todo is ...
 type Todo struct {
-	ID          uint   `json:"id"`
+	gorm.Model
 	Title       string `json:"title"`
 	Description string `json:"description"`
 	Rating      uint   `json:"rating"`
