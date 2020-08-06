@@ -21,7 +21,7 @@ func GetTodos(c *gin.Context) {
 //CreateATodo is ...
 func CreateATodo(c *gin.Context) {
 	var todo models.Todo
-	c.BindJSON(&todo)
+	c.ShouldBindJSON(&todo)
 	err := models.CreateATodo(&todo)
 	if err != nil {
 		c.AbortWithStatus(http.StatusNotFound)
@@ -50,7 +50,7 @@ func UpdateATodo(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusNotFound, todo)
 	}
-	c.BindJSON(&todo)
+	c.ShouldBindJSON(&todo)
 	err = models.UpdateATodo(&todo, id)
 	if err != nil {
 		c.AbortWithStatus(http.StatusNotFound)
